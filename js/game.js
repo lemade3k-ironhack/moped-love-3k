@@ -2,39 +2,50 @@ let canvas = document.getElementById("game-canvas");
 let ctx = canvas.getContext("2d");
 canvas.style.border = "2px solid black";
 
-let houses = new Image();
-houses.src = '../img/houses.png';
+let background = new Background();
+let driverX = 20, driverY = 375 - 150;
+let driver = new Driver();
+let barries = new Barri();
 
-let road = new Image();
-road.src = '../img/road.png';
-let roadX = 0, roadY = 265; 
+let speed = 2;
+let intervalId = 0;
+let isGameOver = false;
 
-let trees = new Image();
-trees.src = '../img/trees.png';
-let treeX = 0, treeY = -10;
+function initGame() {
+  background.animate(speed);
+  barries.animate(speed);
+  driver.animate(driverX, driverY);
 
-let driver = new Image();
-driver.src = `../img/${location.search.substring(1)}.png`;
-let driverX = 20, driverY = 300;
-
-let trash = new Image();
-trash.src = '../img/trash.png';
-let trashX = 400, trashY = 440;
-
-let poli = new Image();
-poli.src = '../img/pozilei.png';
-let poliX = 700, poliY = 260;
-
-
-function drawElements() {
-  ctx.drawImage(houses, 0, 0)
-  ctx.drawImage(road, roadX, roadY)
-  ctx.drawImage(trees, treeX, treeY)
-  ctx.drawImage(driver, driverX, driverY)
-  ctx.drawImage(trash, trashX, trashY)
-  ctx.drawImage(poli, poliX, poliY)
+  if (barries.checkCollisions(driverX, driverY)) {
+    location.href = "game-over.html";
+  } else {
+    intervalId = requestAnimationFrame(initGame);
+  }
 }
 
-window.addEventListener('load', () => {
-  drawElements();
+// event listeners for the drivers movements
+document.addEventListener("keydown", (event) => {
+  let driverH = 150;
+  switch (event.code) {
+    case "ArrowUp":
+      if (driverY - 10 > 275 - driverH) driverY -= 10;
+      break;
+    case "ArrowDown":
+      if (driverY + 10 < 575 - driverH) driverY += 10;
+      break;
+    case "ArrowRight":
+      if (driverX < 300) {
+        driverX += 10;
+        speed += 0.2;
+      }
+      break;
+    case "ArrowLeft":
+      if (driverX > 20) {
+        driverX -= 10;
+        speed -= 0.2;
+      }
+      break;
+  }
 });
+
+window.addEventListener("load", initGame);
