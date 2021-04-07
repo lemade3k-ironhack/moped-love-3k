@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>MopedLove3k</title>
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body id="index">
-    <header>
-      <a href="./index.html"><img src="img/logo.gif" alt="logo" id="logo"></a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>MopedLove3k</title>
+  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.5/css/unicons.css">
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body id="index">
+  <header>
+    <div class='hr'>
       <nav>
         <p class="nav-text"><a href="./views/game.html">Game</a></p>
-        <p class="nav-text"><a href="./views/about.html">About</a></p>               
+        <p class="nav-text"><a href="./views/about.html">About</a></p>
       </nav>
-    </header>
+    </div>
+    <h1>
+      <a href="./index.html">
+        <img src="img/logo.gif" alt="logo" id="logo">
+        <span class="bigger">M</span>OPED<span class="bigger">L</span>OVE<span class="bigger">3</span><span class="bigger">K</span>
+        <img src="img/logo.gif" alt="logo" id="logo">
+      </a>
+    </h1>
+    <div class='hr'></div>
+  </header>
 
-    <main>
-      <section id="instructions">
-      </section>
-      <section id="driver">
-        <a class="btn driver1" href="./views/game.html?driver1">
-          <img src="./img/driver1.png" alt="driver one">
-        </a>
-        <a class="btn driver2" href="./views/game.html?driver2">
-          <img src="./img/driver2.png" alt="driver two">
-        </a>
-        <a class="btn driver3" href="./views/game.html?driver3">
-          <img src="./img/driver3.png" alt="driver tree">
-        </a>
-        <a class="btn driver4" href="./views/game.html?driver4">
-          <img src="./img/driver4.png" alt="driver four">
-        </a>
-      </section>
-    </main>
+  <main>
+    <section id="instructions">
+      <h2>Instructions</h2>
+      <p>
+        To control your character, you can use the 4 arrows of your keyboard.
+Beware, with the right and the left arrow key you increase or decrease the speed.
+      </p>
+      <img src="./img/arrow-keys.png" alt="arrow-keys">
+    </section>
 
-    <footer><span id="footer-text">Made by lemade3k</footer>
-  </body>
+    <section id="driver">
+      <h2>Play the Game</h2>
+      <p>Choose a character and it's moped to start the game.</p>
+      <a class="btn driver" href="./views/game.html?driver1">
+        <img src="./img/driver1.png" alt="driver one">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver2">
+        <img src="./img/driver2.png" alt="driver two">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver3">
+        <img src="./img/driver3.png" alt="driver tree">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver4">
+        <img src="./img/driver4.png" alt="driver four">
+      </a>
+    </section>
+  </main>
+
+  <footer><span id="footer-text">Made by lemade3k</footer>
+</body>
+
 </html>
