@@ -10,6 +10,8 @@ let timer = new Timer();
 
 let speed = 2;
 
+let toogleMusicBtn = document.querySelector('#volume i')
+let gameMusic = new Audio("../audio/01_Why Can't We Say.mp3")
 let intervalId = 0;
 let isGameOver = false;
 
@@ -53,6 +55,23 @@ document.addEventListener("keydown", (event) => {
       }
       break;
   }
-});
 
-window.addEventListener("load", initGame);
+function toogleMusic() { 
+  if (toogleMusicBtn.classList.contains('uil-volume-mute')) {
+    gameMusic.pause()
+    toogleMusicBtn.classList.remove('uil-volume-mute')
+    toogleMusicBtn.classList.add('uil-volume-up')
+  } else if (toogleMusicBtn.classList.contains('uil-volume-up')) {
+    gameMusic.play()
+    toogleMusicBtn.classList.remove('uil-volume-up')
+    toogleMusicBtn.classList.add('uil-volume-mute')
+  }
+}
+
+window.addEventListener("load", () => {
+  initGame();
+  // toggle music
+  gameMusic.play()
+  gameMusic.loop = true
+  toogleMusicBtn.addEventListener("click", toogleMusic)
+});
