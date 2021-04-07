@@ -17,13 +17,15 @@ let intervalId = 0;
 let isGameOver = false;
 
 function initGame() {
+  speed = timer.updateLevel(speed);
   background.animate(speed);
   barries.animate(speed);
   driver.animate(driverX, driverY);
-  timer.animate();
+  timer.animate(speed);
 
   if (barries.checkCollisions(driverX, driverY)) {
     window.localStorage.setItem("time",timer.printTimeResume())
+    window.localStorage.setItem("level",timer.printLevelResume())
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);
