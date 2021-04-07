@@ -9,13 +9,17 @@ class Timer {
   }
  
   animate() {
+    this.drawTimerBoard()
+    ctx.fillText(`Time: ${this.printTime()}`, canvas.width /2, 16);
+  }
+
+  drawTimerBoard() {
     ctx.fillStyle = '#000'
     ctx.fillRect(canvas.width/2 - 75, 0, 150, 25);
     ctx.fillStyle = "black"; 
     ctx.font = '19px calibri'
     ctx.textAlign = "center";
     ctx.fillStyle = '#fff'
-    ctx.fillText(`Time: ${this.printTime()}`, canvas.width /2, 16);
   }
 
   getMinutes() {

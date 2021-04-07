@@ -12,11 +12,9 @@ let speed = 2;
 
 let toogleMusicBtn = document.querySelector('#volume i')
 let gameMusic = new Audio("../audio/01_Why Can't We Say.mp3")
+
 let intervalId = 0;
 let isGameOver = false;
-
-// start the timer
-timer.start();
 
 function initGame() {
   background.animate(speed);
@@ -25,15 +23,14 @@ function initGame() {
   timer.animate();
 
   if (barries.checkCollisions(driverX, driverY)) {
-    window.localStorage.setItem('time',timer.printTime())
+    window.localStorage.setItem("time",timer.printTime())
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);
   }
 }
 
-// event listeners for the drivers movements
-document.addEventListener("keydown", (event) => {
+function moveDriver(event) {
   let driverH = 150;
   switch (event.code) {
     case "ArrowUp":
@@ -55,6 +52,7 @@ document.addEventListener("keydown", (event) => {
       }
       break;
   }
+}
 
 function toogleMusic() { 
   if (toogleMusicBtn.classList.contains('uil-volume-mute')) {
@@ -70,6 +68,11 @@ function toogleMusic() {
 
 window.addEventListener("load", () => {
   initGame();
+  timer.start();
+
+  // event listeners for the drivers movements
+  document.addEventListener("keydown", (event) => moveDriver(event));
+  
   // toggle music
   gameMusic.play()
   gameMusic.loop = true
