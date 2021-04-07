@@ -6,17 +6,24 @@ let background = new Background();
 let driverX = 20, driverY = 375 - 150;
 let driver = new Driver();
 let barries = new Barri();
+let timer = new Timer();
 
 let speed = 2;
+
 let intervalId = 0;
 let isGameOver = false;
+
+// start the timer
+timer.start();
 
 function initGame() {
   background.animate(speed);
   barries.animate(speed);
   driver.animate(driverX, driverY);
+  timer.animate();
 
   if (barries.checkCollisions(driverX, driverY)) {
+    window.localStorage.setItem('time',timer.printTime())
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);
