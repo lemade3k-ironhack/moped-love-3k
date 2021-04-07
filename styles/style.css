@@ -44,7 +44,7 @@ header h1 {
   color: white;
 }
 
-header h1 a {
+header h1 a, footer a {
   color: white;
 }
 
@@ -72,8 +72,7 @@ main section {
   text-align: center;
 }
 
-h1,
-h2 {
+h1, h2, h3 {
   text-transform: uppercase;
 }
 
