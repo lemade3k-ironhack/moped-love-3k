@@ -23,7 +23,7 @@ function initGame() {
   timer.animate();
 
   if (barries.checkCollisions(driverX, driverY)) {
-    window.localStorage.setItem("time",timer.printTime())
+    window.localStorage.setItem("time",timer.printTimeResume())
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);

@@ -39,4 +39,8 @@ class Timer {
     let sec = this.twoDigitsNumber(this.getSeconds())
     return `${min} : ${sec}`
   }
+
+  printTimeResume(){
+    return `${this.getMinutes()} minutes and ${this.getSeconds()} seconds`
+  }
 }

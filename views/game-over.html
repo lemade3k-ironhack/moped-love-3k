@@ -1,28 +1,66 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>MopedLove3k</title>
-    <link rel="shortcut icon" href="../img/favicon.png">
-    <link rel="stylesheet" href="../styles/style.css" />
-  </head>
-  <body id="game">
-    <header>
-      <a href="../index.html"><img src="../img/logo.gif" alt="logo" id="logo"></a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>MopedLove3k</title>
+  <link rel="shortcut icon" href="../img/favicon.png">
+  <link rel="stylesheet" href="../styles/style.css" />
+</head>
+
+<body id="game-over-body">
+  <header>
+    <div class='hr'>
       <nav>
         <p class="nav-text"><a href="./game.html">Game</a></p>
         <p class="nav-text"><a href="./about.html">About</a></p>
       </nav>
-    </header>
-    
-    <main id="game-over">
-      <p>You survived <span id="timePlayed"></span></p>
-      <a href="../index.html">Try again!</a>
-    </main>
+    </div>
+    <h1>
+      <a href="../index.html">
+        <img src="../img/logo.gif" alt="logo" id="logo">
+        <span class="bigger">M</span>oped<span class="bigger">L</span>ove
+        <span class="bigger">3</span><span class="bigger">k</span>
+        <img src="../img/logo.gif" alt="logo" id="logo">
+      </a>
+    </h1>
+    <div class='hr'></div>
+  </header>
 
-    <footer><span id="footer-text">Made by lemade3k</footer>
-    
-    <script src="../js/game-over.js"></script>
-  </body>
+  <main>
+    <section id="game-over">
+      <h2>
+        <span class="bigger">G</span>ame <span class="bigger">O</span>ver
+        <span class="bigger">D</span>arling!
+      </h2>
+      <p>You survived amazing <span id="timePlayed"></span>!</p>
+    </section>
+
+    <section id="again">
+      <h2><span class="bigger">L</span>ucky <span class="bigger">Y</span>ou
+        <span class="bigger">C</span>an <span class="bigger">T</span>ry <span class="bigger">A</span>gain
+      </h2>
+      <p>(Choose your character wisely)</p>
+      <a class="btn driver" href="./views/game.html?driver1">
+        <img src="../img/driver1.png" alt="driver one">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver2">
+        <img src="../img/driver2.png" alt="driver two">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver3">
+        <img src="../img/driver3.png" alt="driver tree">
+      </a>
+      <a class="btn driver" href="./views/game.html?driver4">
+        <img src="../img/driver4.png" alt="driver four">
+      </a>
+      <p>Or read the <a href="../index.html">instructions</a> again</p>
+    </section>
+  </main>
+
+  <footer><span id="footer-text">Made by lemade3k</footer>
+
+  <script src="../js/game-over.js"></script>
+</body>
+
 </html>

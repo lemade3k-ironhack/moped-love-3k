@@ -87,17 +87,16 @@ footer {
   background-color: black;
 }
 
-
 /* index.html */
-
 a.driver {
   text-decoration: none;
-  margin: 10px;
 }
 
 a.driver img {
   width: 150px;
+  margin: 30px 10px;
 }
+
 /* game.html */
 main#game {
   height: 650px;
@@ -117,3 +116,15 @@ main#game canvas {
   cursor: pointer;
 }
 
+/* game-over.html */
+section#game-over p {
+  font-size: 1.2em;
+}
+
+section#again h2 {
+  margin-bottom: 5px;
+}
+
+section#again p {
+  margin-top: 0;
+}
