@@ -6,7 +6,10 @@ class Barri {
     this.poli = new Image();
     this.poli.src = "../img/pozilei.png";
 
-    this.images = [this.trash, this.trash, this.trash, this.poli];
+    this.demo = new Image();
+    this.demo.src = "../img/demo.png"
+
+    this.images = [this.trash, this.trash, this.trash, this.demo, this.poli];
 
     this.roadMin = 275;
     this.roadMax = 575;
