@@ -27,9 +27,7 @@ function initGame() {
   timer.animate(speed, starsCount);
 
   if (barries.isCollision(driverX, driverY)) {
-    window.localStorage.setItem("time",timer.printTimeResume())
-    window.localStorage.setItem("level",timer.printLevelResume())
-    window.localStorage.setItem("stars", starsCount)
+    timer.storeScore(starsCount);
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);

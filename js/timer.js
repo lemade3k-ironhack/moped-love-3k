@@ -3,7 +3,7 @@ class Timer {
     this.timerId = 0;
     this.timer = 0;
 
-    this.levels = ["Novice", "Passable", "Speeder", "Formel 750", "Insane"];
+    this.levels = ["Novice", "Passable", "Speeder", "Formula 750", "Insane"];
     this.level = this.levels[0];
   }
 
@@ -90,11 +90,39 @@ class Timer {
     return `${min}:${sec}`;
   }
 
-  printTimeResume() {
-    return `${this.getMinutes()} minutes and ${this.getSeconds()} seconds`;
+  /*
+    addBonusTime(<num>)
+    for every collected star add 3 bonus seconds to the timer
+    
+    return nothing
+  */
+  addBonusTime(starsCount) {
+    this.timer += starsCount * 3;
   }
 
-  printLevelResume() {
-    return this.level;
+  /*
+    scoreStore(<num>)
+    get or initialize the local storage 'scores' and update it 
+    with the current score
+    
+    return nothing
+  */
+  storeScore(starsCount) {
+    this.addBonusTime(starsCount);
+
+    let store = {};
+    if (window.localStorage.getItem("scores")) {
+      store = JSON.parse(window.localStorage.getItem("scores"));
+    }
+
+    // set random key
+    let rand = Math.floor(Math.random() * 1000);
+    let newScore = {
+      time: this.printTime(),
+      level: this.level,
+    };
+
+    store[rand] = newScore;
+    window.localStorage.setItem("scores", JSON.stringify(store));
   }
 }
