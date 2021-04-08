@@ -1,10 +1,18 @@
 /* General */
+@font-face {
+  /*credits to http://www.onlinewebfonts.com*/
+  font-family: 'amigaForeverPro2';
+  src: url('../fonts/Amiga\ Forever\ Pro2.ttf') format('truetype'),
+       url('../fonts/Amiga\ Forever\ Pro2.woff2') format('woff2'),
+       url('../fonts/Amiga\ Forever\ Pro2.woff') format('woff');
+}  
 
 body {
   min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
+  font-family: 'amigaForeverPro2';
 }
 
 a {
@@ -66,9 +74,9 @@ main {
 }
 
 main section {
-  width: 700px;
+  width: 800px;
   margin: 20px auto;
-  font-size: 1.3em;
+  font-size: 1em;
   text-align: center;
 }
 
@@ -116,10 +124,6 @@ main#game canvas {
 }
 
 /* game-over.html */
-section#game-over p {
-  font-size: 1.2em;
-}
-
 table.highscores {
   margin: 20px auto;
   border-collapse: collapse;
@@ -142,9 +146,7 @@ table.highscores .current-score {
 }
 
 table.highscores .current-score td {
-  padding: 3px;
-  font-weight: bolder;
-  font-size: 1.05em;
+  padding: 5px;
 }
 
 .not-top {

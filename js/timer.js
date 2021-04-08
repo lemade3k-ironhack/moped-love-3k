@@ -15,12 +15,12 @@ class Timer {
     // draw top board
     ctx.beginPath();
     ctx.fillStyle = "#000";
-    ctx.fillRect(canvas.width / 2 - 170, 0, 340, 25);
+    ctx.fillRect(canvas.width / 2 - 250, 0, 500, 25);
     ctx.closePath();
 
     // fill top board with text
     ctx.beginPath();
-    ctx.font = "19px calibri";
+    ctx.font = "13px amigaForeverPro2";
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
     ctx.fillText(this.updateBoardText(speed, starsCount), canvas.width / 2, 18);
@@ -29,12 +29,12 @@ class Timer {
     // draw bottom board
     ctx.beginPath();
     ctx.fillStyle = "#000";
-    ctx.fillRect(canvas.width / 2 - 80, canvas.height - 25, 160, 25);
+    ctx.fillRect(canvas.width / 2 - 100, canvas.height - 25, 200, 25);
     ctx.closePath();
 
     // fill bottom board with text
     ctx.beginPath();
-    ctx.font = "19px calibri";
+    ctx.font = "13px amigaForeverPro2";
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
     ctx.fillText(
