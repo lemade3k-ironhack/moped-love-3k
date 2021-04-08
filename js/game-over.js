@@ -5,10 +5,11 @@
   returns nothing
 */
 function printHighscore() {
-  let scores = JSON.parse(window.localStorage.getItem("scores"));
+  let scores = JSON.parse(window.localStorage.getItem("highscores")).scores;
   let topFive = sortByTime(scores).slice(0, 5);
   let notInTopFive = true;
-  let currentScoreId = Number(Object.keys(scores).pop());
+  let currentScoreId = scores.slice(scores.length - 1)[0].key;
+  let currentTime = scores.find(score => score.key == currentScoreId).time
   let parentElem = document.querySelector(".scores");
 
   // print the five best scores
@@ -17,7 +18,9 @@ function printHighscore() {
     newRow.innerHTML = `<td>${score.time}</td><td>${score.level}</td>`;
 
     // check if current score is in top five and add class
+    // ToDo: refactor that you can return after condition
     if (topFive[i].key == currentScoreId) {
+      console.log(newRow)
       newRow.classList.add("current-score");
       notInTopFive = false;
     }
@@ -25,12 +28,13 @@ function printHighscore() {
     parentElem.appendChild(newRow);
   });
 
-  if (notInTopFive) youAreNotTop(scores[currentScoreId].time);
+  // ToDo: refactor that you can return after condition
+  if (notInTopFive) youAreNotTop(currentTime);
 }
 
 /* 
   youAreNotTop(<string>)
-  if you are not in top five append your result to game-over.html 
+  if you are not in top five append result to game-over.html 
 
   returns nothing
 */
@@ -44,25 +48,19 @@ function youAreNotTop(time) {
 }
 
 /*
-  sortByTime(<Object: Objects>)
+  sortByTime(<arr obj>)
   returns a sorted array of objects
 */
 function sortByTime(scores) {
-  let result = [];
-
-  // create a sortable array
-  for (let key in scores) {
-    result.push(scores[key]);
-    scores[key]["key"] = key;
-  }
+  let clonedScores = JSON.parse(JSON.stringify(scores));
 
   // sort the array
-  result.sort((a, b) => {
+  clonedScores.sort((a, b) => {
     if (a.time > b.time) return -1;
     if (a.time < b.time) return 1;
     return 0;
   });
-  return result;
+  return clonedScores;
 }
 
 window.addEventListener("load", printHighscore);

@@ -109,20 +109,20 @@ class Timer {
   */
   storeScore(starsCount) {
     this.addBonusTime(starsCount);
-
-    let store = {};
-    if (window.localStorage.getItem("scores")) {
-      store = JSON.parse(window.localStorage.getItem("scores"));
+    
+    let localStore = {scores: []};
+    if (window.localStorage.getItem("highscores")) {
+      localStore = JSON.parse(window.localStorage.getItem("highscores"));
     }
 
-    // set random key
-    let rand = Math.floor(Math.random() * 1000);
     let newScore = {
+      key: Math.floor(Math.random() * 1000),
       time: this.printTime(),
       level: this.level,
     };
 
-    store[rand] = newScore;
-    window.localStorage.setItem("scores", JSON.stringify(store));
+    console.log(localStore)
+    localStore.scores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(localStore));
   }
 }
