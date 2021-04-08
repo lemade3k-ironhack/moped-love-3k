@@ -57,7 +57,7 @@ header h1 a, footer a {
 }
 
 header h1 img {
-  height: 55px;
+  height: 70px;
 }
 
 .bigger {
@@ -150,6 +150,7 @@ table.highscores .current-score td {
 }
 
 .not-top {
+  padding: 5px;
   border: 2px solid #ddd;
   font-size: 1.1em !important;
   animation: blink .5s step-end infinite alternate;
