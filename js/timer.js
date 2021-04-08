@@ -7,10 +7,43 @@ class Timer {
     this.level = this.levels[0];
   }
 
+  /*
+    start()
+    start the timer interval
+
+    returns nothing
+  */
   start() {
     this.timerId = setInterval(() => this.timer++, 1000);
   }
 
+  /*
+    updateLevel(<num>)
+    update the level and increase speed if some time passed. Returns the new speed
+
+    return <num>
+  */
+    updateLevel(speed) {
+      if (this.timer == 40) {
+        speed += 0.04;
+        this.level = this.levels[4];
+      } else if (this.timer == 30) {
+        speed += 0.04;
+        this.level = this.levels[3];
+      } else if (this.timer == 20) {
+        speed += 0.03;
+        this.level = this.levels[2];
+      } else if (this.timer == 10) {
+        speed += 0.03;
+        this.level = this.levels[1];
+      }
+      return speed;
+    }
+
+  /*
+    animate(<num>, <num>)
+    draw a top and a bottom board with score information and current speed 
+  */
   animate(speed, starsCount) {
     // draw top board
     ctx.beginPath();
@@ -23,7 +56,7 @@ class Timer {
     ctx.font = "13px amigaForeverPro2";
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
-    ctx.fillText(this.updateBoardText(speed, starsCount), canvas.width / 2, 18);
+    ctx.fillText(this.updateTopBoardText(speed, starsCount), canvas.width / 2, 18);
     ctx.closePath();
 
     // draw bottom board
@@ -38,52 +71,71 @@ class Timer {
     ctx.textAlign = "center";
     ctx.fillStyle = "#fff";
     ctx.fillText(
-      this.updateSpeedText(speed),
+      this.updateBottomBoardText(speed),
       canvas.width / 2,
       canvas.height - 8
     );
     ctx.closePath();
   }
 
-  updateLevel(speed) {
-    if (this.timer == 40) {
-      speed += 0.04;
-      this.level = this.levels[4];
-    } else if (this.timer == 30) {
-      speed += 0.04;
-      this.level = this.levels[3];
-    } else if (this.timer == 20) {
-      speed += 0.03;
-      this.level = this.levels[2];
-    } else if (this.timer == 10) {
-      speed += 0.03;
-      this.level = this.levels[1];
-    }
-    return speed;
-  }
+  /* 
+    updateTopBoardText(<num>, <num>)
+    update text of top board
 
-  updateBoardText(speed, starsCount) {
+    return <string>
+  */
+  updateTopBoardText(speed, starsCount) {
     return `Stars: ${starsCount} - Time: ${this.printTime()} - Level: ${
       this.level
     }`;
   }
 
-  updateSpeedText(speed) {
+  /* 
+    updateBottomBoardText(<num>, <num>)
+    update text of bottom board
+
+    return <string>
+  */
+  updateBottomBoardText(speed) {
     return `Speed: ${Math.floor(speed * 10)}Km/H`;
   }
 
+  /*
+    getMinutes()
+    get minutes from timer
+
+    return <num>
+  */
   getMinutes() {
     return Math.floor(this.timer / 60);
   }
 
+  /*
+    getSeconds()
+    get seconds from timer
+
+    return <num>
+  */
   getSeconds() {
     return Math.floor(this.timer % 60);
   }
 
+  /*
+    twoDigitsNumber(<num>)
+    returns a string with leading zero out of a given number
+
+    return <string>
+  */
   twoDigitsNumber(number) {
     return number < 10 ? `0${number}` : `${number}`;
   }
 
+  /*
+    printTime()
+    returns a string out of minutes and seconds
+
+    return <string>
+  */
   printTime() {
     let min = this.twoDigitsNumber(this.getMinutes());
     let sec = this.twoDigitsNumber(this.getSeconds());

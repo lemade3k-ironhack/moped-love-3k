@@ -18,6 +18,14 @@ let gameMusic = new Audio("../audio/01_Why Can't We Say.mp3")
 let intervalId = 0;
 let isGameOver = false;
 
+/*
+  initGame()
+  here we go! 
+  Animate all canvas elements, init levels and scores and define 
+  game-over condition 
+
+  returns nothing
+*/
 function initGame() {
   speed = timer.updateLevel(speed);
   background.animate(speed);
@@ -34,6 +42,12 @@ function initGame() {
   }
 }
 
+/*
+  moveDriver(<event>)
+  set speed and drivers coordinates if arrow keys are pressed
+
+  returns nothing
+*/
 function moveDriver(event) {
   let driverH = 150;
   switch (event.code) {
@@ -58,6 +72,12 @@ function moveDriver(event) {
   }
 }
 
+/*
+  toogleMusic()
+  chance volumne icon class and switch music on and off
+
+  returns nothing
+*/
 function toogleMusic() { 
   if (toogleMusicBtn.classList.contains('uil-volume-mute')) {
     gameMusic.pause()

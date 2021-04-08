@@ -45,6 +45,12 @@ class Barri {
     this.driverH = 150;
   }
 
+  /*
+    isCollision(<num>, <num>)
+    detect a collision of the driver with a barricade
+
+    returns <bolean>
+  */
   isCollision(driverX, driverY) {
     let collission = false;
     this.barries.forEach((bar) => {
@@ -60,6 +66,13 @@ class Barri {
     return collission;
   }
 
+  /*
+    animate(<num>)
+    animate a baricade in the canvas with the given speed
+    redraw random baricade after baricade is out of canvas
+
+    returns nothing
+  */
   animate(speed = 1) {
     this.barries.forEach((bar, i) => {
       ctx.drawImage(bar.img, bar.x, bar.y);
@@ -80,6 +93,12 @@ class Barri {
     });
   }
 
+  /* 
+    random(<num>, <num>)
+    returns a random number between given min and max
+
+    return <num>
+  */ 
   random(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }

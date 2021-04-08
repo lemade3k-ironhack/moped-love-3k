@@ -22,6 +22,12 @@ class Star {
     this.driverH = 150;
   }
 
+  /*
+    isCollision(<num>, <num>)
+    detect a collision of the driver with a star
+
+    returns <bolean>
+  */
   isCollision(driverX, driverY) {
     let collission = false;
     this.stars.forEach((star) => {
@@ -37,6 +43,14 @@ class Star {
     return collission;
   }
 
+  /*
+    animate(<num>, <num>, <num>)
+    animate a star in the canvas with the given speed
+    redraw star at random position after collision is detected or
+    if star is out of canvas. Return how many stars where hit.
+
+    return <num>
+  */
   animate(speed = 1, driverX, driverY) {
     let hitStar = false;
     let newStar = {
@@ -58,6 +72,12 @@ class Star {
     return hitStar;
   }
 
+  /* 
+    random(<num>, <num>)
+    returns a random number between given min and max
+
+    return <num>
+  */
   random(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
