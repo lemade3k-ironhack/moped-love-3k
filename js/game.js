@@ -26,7 +26,7 @@ function initGame() {
   driver.animate(driverX, driverY);
   timer.animate(speed, starsCount);
 
-  if (barries.checkCollisions(driverX, driverY)) {
+  if (barries.isCollision(driverX, driverY)) {
     window.localStorage.setItem("time",timer.printTimeResume())
     window.localStorage.setItem("level",timer.printLevelResume())
     window.localStorage.setItem("stars", starsCount)
