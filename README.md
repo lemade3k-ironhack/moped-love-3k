@@ -4,7 +4,7 @@
 
 ## Description
 :purple_heart::black_heart::purple_heart: MopedLove3k :purple_heart::black_heart::purple_heart: is a simple html5/javascript side scroller game in which the player just wants to ride home on her beloved moped after a long day. In the process, she has to dodge various barricades on the road and escape the police.  
-The game is over if she crashes or is caught by the police. The goal is to get home unharmed. It seems to be an endless journey...
+The game is over if she crashes or is caught by the police. The goal is to get home unharmed and collect as many stars on her way as possible. It seems to be an endless journey...
 
 
 ## MVP

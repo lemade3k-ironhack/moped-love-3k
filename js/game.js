@@ -6,9 +6,11 @@ let background = new Background();
 let driverX = 20, driverY = 375 - 150;
 let driver = new Driver();
 let barries = new Barri();
+let stars = new Star();
 let timer = new Timer();
 
 let speed = 2;
+let starsCount = 0;
 
 let toogleMusicBtn = document.querySelector('#volume i')
 let gameMusic = new Audio("../audio/01_Why Can't We Say.mp3")
@@ -19,13 +21,15 @@ let isGameOver = false;
 function initGame() {
   speed = timer.updateLevel(speed);
   background.animate(speed);
+  starsCount += stars.animate(speed, driverX, driverY);
   barries.animate(speed);
   driver.animate(driverX, driverY);
-  timer.animate(speed);
+  timer.animate(speed, starsCount);
 
   if (barries.checkCollisions(driverX, driverY)) {
     window.localStorage.setItem("time",timer.printTimeResume())
     window.localStorage.setItem("level",timer.printLevelResume())
+    window.localStorage.setItem("stars", starsCount)
     location.href = "game-over.html";
   } else {
     intervalId = requestAnimationFrame(initGame);
