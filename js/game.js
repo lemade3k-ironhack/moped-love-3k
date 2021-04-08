@@ -79,6 +79,7 @@ window.addEventListener("load", () => {
   
   // toggle music
   gameMusic.play()
+  gameMusic.volume = 0.4
   gameMusic.loop = true
   toogleMusicBtn.addEventListener("click", toogleMusic)
 });
