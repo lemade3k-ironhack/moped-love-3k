@@ -90,13 +90,21 @@ function toogleMusic() {
   }
 }
 
+
 window.addEventListener("load", () => {
   initGame();
   timer.start();
 
   // event listeners for the drivers movements
   document.addEventListener("keydown", (event) => moveDriver(event));
-  
+
+  // prevent window from scrolling while using the keyboard keys
+  let windowX = window.pageXOffset || document.documentElement.scrollLeft
+  let windowY = window.pageYOffset || document.documentElement.scrollTop
+  window.onscroll = () => {
+    window.scrollTo(windowX, windowY)
+  }
+
   // toggle music
   gameMusic.play()
   gameMusic.volume = 0.4
