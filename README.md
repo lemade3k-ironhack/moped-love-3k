@@ -76,7 +76,7 @@ Definition of the different states and their transition (transition functions)
 ... t.b.a (see also [Kanban Project Board](#kanban) ) 
 
 ## Additional Links
-[Play the game](https://lemade3k.github.io/moped-love-3k/index.html)
+[Play the game](https://lemade3k-ironhack.github.io/moped-love-3k/)
 
 ### <a name="kanban"></a> Kanban Board
 [Link to Kanban Board](https://github.com/lemade3k/moped-love-3k/projects/1?fullscreen=true)
